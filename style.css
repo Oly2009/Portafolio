@@ -1,0 +1,202 @@
+/* ======== VARIABLES Y ESTILOS GLOBALES (PALETA "TEAL & SLATE") ======== */
+:root {
+    /* Color de acento principal */
+    --primary-color: #20c997;       /* Verde azulado (teal) moderno */
+    --primary-hover-color: #17a278;  /* Un tono más oscuro para el efecto hover */
+
+    /* Paleta de oscuros y claros */
+    --dark-color: #2c3e50;        /* Gris oscuro azulado (slate) */
+    --light-bg: #f8f9fa;         /* Fondo general del cuerpo (gris muy claro) */
+    --white-surface: #ffffff;      /* Fondo para las tarjetas (blanco puro) */
+    --border-color: #e9ecef;      /* Color para bordes sutiles */
+    --secondary-color: #6c757d;    /* Gris secundario para etiquetas */
+
+    /* Paleta de texto */
+    --text-dark: #2c3e50;         /* Texto oscuro (el mismo que --dark-color) */
+    --text-light: #ffffff;       /* Texto claro */
+    
+    /* Fuentes */
+    --font-family-headings: 'Montserrat', sans-serif;
+    --font-family-body: 'Lato', sans-serif;
+}
+
+body {
+    font-family: var(--font-family-body);
+    color: var(--text-dark);
+    background-color: var(--light-bg);
+}
+
+h1, h2, h3, h4, h5, h6, .navbar-brand, .skill-icon + p {
+    font-family: var(--font-family-headings);
+    color: var(--text-dark);
+}
+
+h2.section-title {
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+}
+
+h2.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: var(--primary-color);
+    border-radius: 2px;
+}
+
+/* ======== BARRA DE NAVEGACIÓN Y FOOTER OSCUROS ======== */
+#main-nav {
+    background-color: rgba(44, 62, 80, 0.95); /* --dark-color con transparencia */
+    backdrop-filter: blur(5px);
+    transition: background-color 0.3s ease-in-out;
+}
+
+#main-nav.scrolled {
+    background-color: var(--dark-color);
+}
+
+footer {
+    background-color: var(--dark-color);
+    color: var(--text-light);
+}
+
+/* Texto y enlaces de la barra de navegación en blanco */
+#main-nav .navbar-brand,
+#main-nav .nav-link {
+    color: var(--text-light) !important;
+}
+
+#main-nav .navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+#main-nav .navbar-toggler-icon {
+    filter: brightness(0) invert(1);
+}
+
+#main-nav .nav-link:hover, .navbar-brand:hover {
+    color: var(--primary-color) !important;
+}
+
+/* ======== SECCIÓN DE HÉROE ======== */
+.hero-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--light-bg);
+}
+
+.hero-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid var(--primary-color);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.hero-socials .social-icon {
+    font-size: 1.8rem;
+    margin: 0 15px;
+    color: var(--text-dark);
+    transition: color 0.3s ease;
+}
+.hero-socials .social-icon:hover {
+    color: var(--primary-color);
+}
+
+/* ======== ICONOS ======== */
+#about .fas, .skill-icon i, footer .fa-heart {
+    color: var(--primary-color);
+    transition: transform 0.3s ease;
+}
+.skill-icon:hover i {
+    transform: scale(1.1);
+}
+.skill-icon {
+    font-size: 4rem;
+}
+
+/* ======== PROYECTOS ======== */
+#projects {
+    background-color: var(--light-bg);
+}
+
+.project-card {
+    background: var(--white-surface);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.08);
+}
+.project-card .card-body { padding: 25px; }
+.project-card .tech-tags .badge {
+    background-color: var(--secondary-color);
+    color: var(--text-light);
+    font-weight: 500;
+}
+
+/* ======== BOTONES ======== */
+.btn-primary {
+    background-color: var(--primary-color);
+    border: none;
+    padding: 12px 30px;
+    font-weight: 700;
+    color: #ffffff;
+    transition: all 0.3s ease;
+}
+.btn-primary:hover {
+    background-color: var(--primary-hover-color);
+    transform: translateY(-2px);
+}
+
+.btn-outline-custom {
+    background-color: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    padding: 10px 30px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-custom:hover {
+    background-color: var(--primary-color);
+    color: var(--white-surface);
+    transform: translateY(-2px);
+}
+
+/* ======== CONTACTO ======== */
+#contact {
+    background-color: var(--white-surface);
+}
+
+
+/* ======== SOLUCIÓN PARA IGUALAR ALTURA DE TARJETAS DE PROYECTO ======== */
+.project-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card .card-body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card .card-text {
+    flex-grow: 1;
+}
