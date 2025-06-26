@@ -200,3 +200,20 @@ footer {
 .project-card .card-text {
     flex-grow: 1;
 }
+/* ======== ESTILOS PARA EL FORMULARIO DE CONTACTO ======== */
+#contact form .form-control {
+    background-color: var(--white-surface);
+    border: 1px solid var(--border-color);
+    padding: 1rem;
+    color: var(--text-dark);
+}
+
+#contact form .form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem rgba(52, 211, 153, 0.25); /* Sombra con el color de acento */
+}
+
+#contact form .form-label {
+    color: var(--text-muted);
+    font-weight: 600;
+}
